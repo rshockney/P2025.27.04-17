@@ -1,0 +1,33 @@
+{
+  "publisherId": "ca-pub-1399225009324862",
+  
+  "globalSettings": {
+    "enabled": true,
+    "description": "Global control for all ads - when false, no ads will be displayed"
+  },
+  "adUnits": [
+    {
+      "id": "sidebar_ad",
+      "enabled": true,
+      "breakpoint": "large-desktop",
+      "client": "ca-pub-1399225009324862",
+      "slot": "9255707718",
+      "description": "Sidebar ad unit for large desktop screens"
+    },
+    {
+      "id": "footer_ad",
+      "enabled": true,
+      "breakpoint": "all-screens",
+      "client": "ca-pub-1399225009324862",
+      "slot": "1584267104",
+      "description": "Footer ad unit responsive across all screen sizes"
+    }
+  ],
+
+  "applicationSettings": {
+    "oldConverterButton": true,
+    "newConverterText": true,
+    "oldConverterUrl": "https://timezoneconverter.com/cgi-bin/tzc.tz"
+  }
+}
+

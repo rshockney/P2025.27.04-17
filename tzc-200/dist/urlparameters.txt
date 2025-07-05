@@ -1,0 +1,47 @@
+TZC-100 baseline @ version D.24.6
+
+Next modification from this baseline:
+V D.25 - URL Parameters
+
+Part 1: Implement and test before proceeding Part 2
+
+The application shall accept the following URL parameters:
+
+fromzone=<timezone id>
+tozone=<timezone id>
+
+example usage: https://timezoneconverter.com/TZC-200?fromzone=America/New_York&tozone=US/Mountain
+Another example: https://timezoneconverter.com/TZC-200?tozone=US/Pacific
+
+* The timezone must match the id or alias exactly, including case
+	America/NewYork is not acceptable
+	us/mountain is not acceptable
+
+* If the inputs are validated, then the conversion should proceed just as if the user had entered and selected them via the From and To search boxes
+
+Validation should be performed on each input (fromzone and tozone) 
+  - if the timezone is not valid (cannot be found in the id  lists) then perform
+    a search using the string the user provided for the timezone
+	  - If the search yields no results, issue the error message "Timezone <user input> not found."
+	  - If the search yields results, place the input string into the search box and use it to populate the 
+	    search results just as if the user had typed them into the box
+		Then issue the error message to the converter results section: "Timezone <user input> not found."
+		
+Some overall notes regarding conversion irregardless of where the timezone inputs came from (url or search)
+
+* A conversion should never be performed unless both timezones have passed validation (i.e., they exist in the json file as an id )
+
+* If the user came to the website with the url parameters, then each search and conversion should update the URL to reflect the new parameters. This will allow the user to save the latest results. 
+
+* The url parameters should ONLY be updated if they already exist. In other words, no url is modified if the user came to the site without the fromzone and/or tozone parameters.
+
+
+Part 2: Implement after the above is designed and tested
+
+* Add a share icon near the top of the page (top-right,maybe?) with the text "Save results"
+* When the share icon is clicked, update the url with the fromzone and tozone parameters and
+  copy the results to the clipboard. 
+* Show a temporary message "URL copied to clipboard" under the icon 
+* If both fromzone and tozone are not availble, then only include the one that exists in the URL. 
+* IF the fromzone and tozone are both empty, then just copy the URL as it exists to the clipboard.
+* Therefore, in all cases, the share icon will produce a URL of the current state of the page.
